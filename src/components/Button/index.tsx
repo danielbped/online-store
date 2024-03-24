@@ -1,9 +1,16 @@
-const Form = () => {
+import { MouseEventHandler } from "react";
+
+interface ButtonProps {
+  title: string,
+  onClick: MouseEventHandler<HTMLButtonElement>
+}
+
+const Button = (props: ButtonProps) => {
   return (
-    <h1>
-      Button
-    </h1>
+    <button onClick={ (e) => props.onClick(e) }>
+      {props.title}
+    </button>
   );
 };
 
-export default Form;
+export default Button;
