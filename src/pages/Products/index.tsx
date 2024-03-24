@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import Loading from "../../components/Loading";
 import ProductList from "../../components/ProductList";
 import useProductData from "../../hooks/useProductData";
+import ErrorMessage from "../../components/ErrorMessage";
 
 const Products = () => {
   const { data, isLoading, error, isError } = useProductData();
@@ -12,7 +13,7 @@ const Products = () => {
   return (
     <div>
       { isLoading && <Loading /> }
-      { isError && <p>{ error.response.data.message }</p> }
+      { isError && <ErrorMessage message={ error.response.data.message } /> }
       { !isLoading && data && <ProductList data={ data } handleNavigate={ handleNavigate } />}
     </div>
   );
