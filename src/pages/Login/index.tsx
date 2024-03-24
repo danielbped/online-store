@@ -16,11 +16,15 @@ const Login = () => {
   const navigate = useNavigate();
   const { mutate, isSuccess, data, isError, error } = useLoginMutate();
 
+  const handleNavigate = (route: string) => navigate(`/${route}`)
+
   useEffect(() => {
     if (token) {
-      navigate("/products");
+      return handleNavigate("products");
+    } else {
+      return handleNavigate("login")
     }
-  });
+  }, [token]);
 
   const handleLogin: ChangeEventHandler<HTMLInputElement> = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -34,7 +38,7 @@ const Login = () => {
   useEffect(() => {
     if (isSuccess && data.data) {
       setToken(data.data)
-      navigate('/products')
+      handleNavigate('products')
     }
   }, [isSuccess, data, navigate, setToken]);
 
@@ -45,6 +49,7 @@ const Login = () => {
         isError={ isError }
         submit={ submit }
         handleLogin={ handleLogin }
+        handleNavigate={ handleNavigate }
       />
     </StyledLogin>
   );

@@ -30,7 +30,7 @@ const LoginForm = (props: LoginFormInterface) => {
         />
         <Button
           title='Criar Conta'
-          onClick={ () => console.log('Criar Conta') }
+          onClick={ () => props.handleNavigate('register') }
         />
       </StyledButtonSection>
       { props.isError && <p>{ props.error }</p> }
