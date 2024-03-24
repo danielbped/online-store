@@ -1,8 +1,20 @@
+import { useParams } from "react-router-dom";
+import useProductDetailsData from "../../hooks/userProductDetailsData";
+import ProductCard from "../../components/ProductCard";
+import Loading from "../../components/Loading";
+import ErrorMessage from "../../components/ErrorMessage";
+
 const ProductsDetails = () => {
+  const params = useParams();
+
+  const { data, isLoading, error, isError } = useProductDetailsData(params.id);
+
   return (
-    <h1>
-      Detalhes do produto
-    </h1>
+    <div>
+      { isLoading && <Loading /> }
+      { isError && <ErrorMessage message={ error.response.data.message } /> }
+      { data && <ProductCard product={ data?.product } /> }
+    </div>
   );
 };
 
