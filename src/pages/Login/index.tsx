@@ -13,9 +13,9 @@ const Login = () => {
     password: undefined
   });
 
-  const navigate = useNavigate();
   const { mutate, isSuccess, data, isError, error } = useLoginMutate();
-
+  
+  const navigate = useNavigate();
   const handleNavigate = (route: string) => navigate(`/${route}`)
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const Login = () => {
       setToken(data.data)
       handleNavigate('products')
     }
-  }, [isSuccess, data, navigate, setToken]);
+  }, [isSuccess, data]);
 
   return (
     <StyledLogin>

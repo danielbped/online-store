@@ -1,9 +1,9 @@
 interface LoginToken {
-  data: string;
+  data: string,
 }
 
 export interface LoginResponse {
-  data: LoginToken;
+  data: LoginToken,
 }
 
 export interface LoginData {
