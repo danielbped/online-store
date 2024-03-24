@@ -1,12 +1,4 @@
-import { ChangeEventHandler } from "react";
-
-interface InputProps {
-  type: string,
-  name: string,
-  placeholder: string,
-  title: string,
-  onChange: ChangeEventHandler<HTMLInputElement>
-}
+import { InputProps } from "../../interfaces/components.interface";
 
 const Input = (props: InputProps) => {
   return (
