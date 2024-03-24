@@ -1,8 +1,11 @@
+import LoginForm from "../../components/LoginForm";
+import { StyledLogin } from "./style";
+
 const Login = () => {
   return (
-    <h1>
-      Logas
-    </h1>
+    <StyledLogin>
+      <LoginForm />
+    </StyledLogin>
   );
 };
 
