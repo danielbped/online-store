@@ -2,7 +2,7 @@ import { ChangeEventHandler, useEffect, useState } from "react";
 import RegisterForm from "../../components/RegisterForm";
 import { StyledRegister } from "./style";
 import { RegisterData } from "../../interfaces/register-data.interface";
-import useRegisterMutate from "../../hooks/useRegisterData";
+import useRegisterMutate from "../../hooks/useRegisterMutate";
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
@@ -25,6 +25,7 @@ const Register = () => {
     const { password, confirmPassword } = registerData;
 
     return Object.values(registerData).some(field => !field)
+      || Number(password?.length) < 8
       || password !== confirmPassword;
   }
 

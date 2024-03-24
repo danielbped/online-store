@@ -5,6 +5,5 @@ export interface LoginFormInterface {
   handleNavigate: (route: string) => void,
   submit: () => void,
   isError: boolean,
-  isLoading: boolean,
   error: string
 }

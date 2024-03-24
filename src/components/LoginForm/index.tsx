@@ -2,7 +2,6 @@ import { LoginFormInterface } from "../../interfaces/login-form.interface";
 import Button from "../Button";
 import ErrorMessage from "../ErrorMessage";
 import Input from "../Input";
-import Loading from "../Loading";
 import { StyledButtonSection, StyledInputSection, StyledLoginForm } from "./style";
 
 const LoginForm = (props: LoginFormInterface) => {
@@ -34,7 +33,6 @@ const LoginForm = (props: LoginFormInterface) => {
           onClick={ () => props.handleNavigate('register') }
         />
       </StyledButtonSection>
-      { props.isLoading && <Loading /> }
       { props.isError && <ErrorMessage message={ props.error } /> }
     </StyledLoginForm>
   );
