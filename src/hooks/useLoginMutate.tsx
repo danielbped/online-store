@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios";
-import { LoginData, LoginResponse } from "../components/interfaces/login-data";
+import { LoginData, LoginResponse } from "../interfaces/login-data.interface";
 
 const { VITE_API_URL } = import.meta.env;
 
