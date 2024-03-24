@@ -12,7 +12,7 @@ const fetchData = async (): AxiosPromise<ProductResponse> => {
 const useProductData = () => {
   const query = useQuery({
     queryFn: fetchData,
-    queryKey: ['response-data'],
+    queryKey: ['product-data'],
     retry: false
   });
 
