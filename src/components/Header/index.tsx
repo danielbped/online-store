@@ -1,4 +1,4 @@
-const Form = () => {
+const Header = () => {
   return (
     <h1>
       Header
@@ -6,4 +6,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default Header;
