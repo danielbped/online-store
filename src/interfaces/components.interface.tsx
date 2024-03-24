@@ -1,5 +1,6 @@
 import { MouseEventHandler } from "react";
 import { ChangeEventHandler } from "react";
+import { ProductData, ProductResponse } from "./product-data.interface";
 
 export interface InputProps {
   type: string,
@@ -12,5 +13,19 @@ export interface InputProps {
 export interface ButtonProps {
   title: string,
   onClick: MouseEventHandler<HTMLButtonElement>,
-  disabled?: boolean
+  disabled?: boolean,
+}
+
+export interface ErrorMessageProps {
+  message: string,
+}
+
+export interface ProductCardProps {
+  product: ProductData,
+  handleNavigate: (route: string) => void
+}
+
+export interface ProductListProps {
+  data: ProductResponse
+  handleNavigate: (route: string) => void
 }
