@@ -13,3 +13,7 @@ export interface ProductData {
 export interface ProductResponse {
   products: ProductData[],
 }
+
+export interface ProductDetailResponse {
+  product: ProductData,
+}
