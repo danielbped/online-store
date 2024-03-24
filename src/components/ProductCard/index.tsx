@@ -1,9 +1,12 @@
+import { useNavigate } from "react-router-dom";
 import { ProductCardProps } from "../../interfaces/components.interface";
 import { StyledProductCard } from "./style";
 
 const ProductCard = (props: ProductCardProps) => {
+  const navigate = useNavigate();
+
   const handleClick = () => {
-    return props.handleNavigate ? props.handleNavigate(`product/${props.product.id}`) : null;
+    navigate(`/product/${props.product.id}`);
   };
 
   return (

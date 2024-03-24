@@ -22,10 +22,8 @@ export interface ErrorMessageProps {
 
 export interface ProductCardProps {
   product: ProductData,
-  handleNavigate?: (route: string) => void
 }
 
 export interface ProductListProps {
   data: ProductResponse
-  handleNavigate: (route: string) => void
 }

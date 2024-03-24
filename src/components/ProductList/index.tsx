@@ -4,7 +4,7 @@ import ProductCard from "../ProductCard";
 const ProductList = (props: ProductListProps) => {
   return (
     <div>
-      { props.data.products.map(product => <ProductCard product={ product } handleNavigate={ props.handleNavigate } />) }
+      { props.data.products.map(product => <ProductCard product={ product } />) }
     </div>
   );
 }
