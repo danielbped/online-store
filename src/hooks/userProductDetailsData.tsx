@@ -12,13 +12,22 @@ const fetchData = async (id: string): AxiosPromise<ProductDetailResponse> => {
 const useProductDetailsData = (id: string) => {
   const query = useQuery({
     queryFn: () => fetchData(id),
-    queryKey: ['product-detail-data'],
-    retry: false
+    queryKey: ['product-detail-data']
   });
+
+  const product = query.data?.data.product;
 
   return {
     ...query,
-    data: query.data?.data
+    data: {
+      id: null,
+      title: product?.title,
+      images: product?.images.map((image) => image.src),
+      price: product?.variants[0].price,
+      itemId: product?.id,
+      variants: product?.variants,
+      vendor: product?.vendor
+    }
   };
 };
 

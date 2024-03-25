@@ -24,6 +24,7 @@ const useProductData = () => {
       images: product.images.map((image) => image.src),
       price: product.variants[0].price,
       itemId: product.id,
+      variants: product.variants,
     }))
   };
 };
