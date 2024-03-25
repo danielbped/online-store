@@ -20,7 +20,6 @@ const useFavoriteData = (id: string) => {
   const query = useQuery({
     queryFn: () => fetchData(id),
     queryKey: ['favorite-data'],
-    retry: false
   });
 
   return {

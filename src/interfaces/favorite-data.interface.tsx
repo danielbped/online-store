@@ -4,6 +4,7 @@ export interface FavoriteData {
   images: string[],
   price: string,
   itemId: string,
+  favorite?: boolean
 }
 
 export interface CreateFavoriteData {
