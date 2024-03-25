@@ -1,6 +1,6 @@
 # Online Store
 
-Trata-se de uma aplicação que simula uma loja virtual, sendo possível cadastrar um novo usuário, realizar o login, visualizar e favoritar produtos, também como visualizar e remover os produtos favoritados. A aplicação depende da API disponível ![aqui](https://github.com/danielbped/online-store-api).
+Trata-se de uma aplicação que simula uma loja virtual, sendo possível cadastrar um novo usuário, realizar o login, visualizar e favoritar produtos, também como visualizar e remover os produtos favoritados. A aplicação depende da API disponível [aqui](https://github.com/danielbped/online-store-api).
 
 # Sumário
 - [Licença](#licenca)
