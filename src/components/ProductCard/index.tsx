@@ -1,12 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import { ProductCardProps } from "../../interfaces/components.interface";
-import { StyledProductCard } from "./style";
+import { StyledFavoriteButton, StyledProductCard, StyledProductImage, StyledProductInfo, StyledProductPrice, StyledProductTitle } from "./style";
 import useAddFavoriteMutate from "../../hooks/useAddFavoriteMutate";
 import { useSelector } from "react-redux";
 import useRemoveFavoriteMutate from "../../hooks/useRemoveFavoriteMutate";
 import { FavoriteData } from "../../interfaces/favorite-data.interface";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { LoginResponse } from "../../interfaces/login-data.interface";
+import { FaHeart } from "react-icons/fa6";
+import { CiHeart } from "react-icons/ci";
+import { useEffect } from "react";
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const user = useSelector((rootReducer: any) => rootReducer.userReducer);
@@ -20,6 +23,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
     images: product.images,
     title: product.title
   }, token);
+
+  useEffect(() => {
+    if (user.id === '') {
+      setToken(null);
+      navigate('/login');
+    }
+  }, [user.id])
 
   const removeFav = useRemoveFavoriteMutate(user.id, String(product?.itemId), token);
 
@@ -35,7 +45,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
     addFav.mutate();
   };
 
-  const handleFavorite = (product: FavoriteData) => {
+    const handleFavorite = (product: FavoriteData) => {
     if (product?.favorite) {
       return removeFavorite();
     } else {
@@ -44,18 +54,20 @@ const ProductCard = ({ product }: ProductCardProps) => {
   }
 
   return (
-    <div>
-      <StyledProductCard onClick={handleClick}>
-        <p>{ product.title }</p>
-        <img src={ product.images[0] } alt={ product.title } />
-        <p>{ product.price }</p>
-      </StyledProductCard>
-      { token && <button
-        onClick={ () => handleFavorite(product) }
-      >
-        +FAV { product.favorite && ' OK' }
-      </button> }
-    </div>
+    <StyledProductCard>
+      <StyledProductImage onClick={ handleClick } src={ product.images[0] } alt={ product.title } />
+      <StyledProductInfo>
+        <div>
+          <StyledProductTitle onClick={ handleClick }>{ product.title }</StyledProductTitle>
+          <StyledProductPrice>R$ { product.price }</StyledProductPrice>
+        </div>
+        { token && <StyledFavoriteButton
+            onClick={ () => handleFavorite(product) }
+          >
+            { product.favorite ? <FaHeart /> : <CiHeart /> }
+          </StyledFavoriteButton> }
+      </StyledProductInfo>
+    </StyledProductCard>
   );
 };
 
