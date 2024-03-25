@@ -18,7 +18,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
     title: product.title
   });
 
-  const removeFav = useRemoveFavoriteMutate(user.id, String(product?.id));
+  const removeFav = useRemoveFavoriteMutate(user.id, String(product?.itemId));
 
   const handleClick = () => {
     navigate(`/product/${product.itemId}`);
@@ -33,7 +33,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   };
 
   const handleFavorite = (product: FavoriteData) => {
-    if (product?.id) {
+    if (product?.favorite) {
       return removeFavorite();
     } else {
       return addFavorite();
@@ -50,7 +50,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       <button
         onClick={ () => handleFavorite(product) }
       >
-        +FAV
+        +FAV { product.favorite && ' OK' }
       </button>
     </div>
   );
