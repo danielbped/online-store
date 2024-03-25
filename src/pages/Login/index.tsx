@@ -5,6 +5,8 @@ import useLoginMutate from "../../hooks/useLoginMutate";
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { ChangeEventHandler, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { GET_USER } from "../../redux/actionTypes/user";
 
 const Login = () => {
   const [token, setToken] = useLocalStorage<LoginResponse | null>("token", null);
@@ -12,10 +14,10 @@ const Login = () => {
     email: undefined,
     password: undefined
   });
-
-  const { mutate, isSuccess, data, isError, error } = useLoginMutate();
   
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { mutate, isSuccess, data, isError, error } = useLoginMutate();
   const handleNavigate = (route: string) => navigate(`/${route}`)
 
   useEffect(() => {
@@ -32,13 +34,19 @@ const Login = () => {
   };
 
   const submit = () => {
-    mutate(loginData)
+    mutate(loginData);
   };
 
   useEffect(() => {
     if (isSuccess && data.data) {
-      setToken(data.data)
-      handleNavigate('products')
+      setToken(data.data.token);
+
+      dispatch({
+        type: GET_USER,
+        payload: data.data.user,
+      });
+
+      handleNavigate('products');
     }
   }, [isSuccess, data]);
 
