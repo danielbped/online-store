@@ -18,7 +18,13 @@ const useProductData = () => {
 
   return {
     ...query,
-    data: query.data?.data
+    data: query.data?.data.products.map((product) => ({
+      id: null,
+      title: product.title,
+      images: product.images.map((image) => image.src),
+      price: product.variants[0].price,
+      itemId: product.id,
+    }))
   };
 };
 

@@ -4,6 +4,7 @@ import { StyledProductCard } from "./style";
 import useAddFavoriteMutate from "../../hooks/useAddFavoriteMutate";
 import { useSelector } from "react-redux";
 import useRemoveFavoriteMutate from "../../hooks/useRemoveFavoriteMutate";
+import { FavoriteData } from "../../interfaces/favorite-data.interface";
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const user = useSelector((rootReducer: any) => rootReducer.userReducer);
@@ -11,16 +12,16 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const navigate = useNavigate();
 
   const addFav = useAddFavoriteMutate(user.id, {
-    itemId: product.id,
-    price: '20',
-    images: product.images.map((image) => image.src),
+    itemId: product.itemId,
+    price: product.price,
+    images: product.images,
     title: product.title
   });
 
-  const removeFav = useRemoveFavoriteMutate(user.id, product.id);
+  const removeFav = useRemoveFavoriteMutate(user.id, String(product?.id));
 
   const handleClick = () => {
-    navigate(`/product/${product.itemId || product.id}`);
+    navigate(`/product/${product.itemId}`);
   };
 
   const removeFavorite = () => {
@@ -31,8 +32,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
     addFav.mutate();
   };
 
-  const handleFavorite = (product: ProductCardProps) => {
-    if (product.itemId) {
+  const handleFavorite = (product: FavoriteData) => {
+    if (product?.id) {
       return removeFavorite();
     } else {
       return addFavorite();
@@ -40,16 +41,18 @@ const ProductCard = ({ product }: ProductCardProps) => {
   }
 
   return (
-    <StyledProductCard onClick={handleClick}>
-      <p>{ product.title }</p>
-      {/* <img src={ handleImages } alt={ product.title } /> */}
-      <p>{ product.price }</p>
+    <div>
+      <StyledProductCard onClick={handleClick}>
+        <p>{ product.title }</p>
+        <img src={ product.images[0] } alt={ product.title } />
+        <p>{ product.price }</p>
+      </StyledProductCard>
       <button
         onClick={ () => handleFavorite(product) }
       >
         +FAV
       </button>
-    </StyledProductCard>
+    </div>
   );
 };
 
