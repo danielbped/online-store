@@ -31,7 +31,3 @@ export interface ProductListProps {
 export interface ImagesCarouselProps {
   images: string[],
 }
-
-export interface ProductsCarouselProps {
-  items: FavoriteData[],
-}
