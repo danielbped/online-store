@@ -4,40 +4,21 @@ import Products from './pages/Products';
 import Register from './pages/Register';
 import ProductsDetails from './pages/ProductDetail';
 import Favorites from './pages/Favorites';
+import { Navigate } from 'react-router-dom';
 import Header from './components/Header';
 
 const App = () => (
   <BrowserRouter>
+    <Header />
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/" element={ <Navigate to="/products" /> } />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/products" element={<HeaderAndProducts />} />
-      <Route path="/product/:id" element={<HeaderAndProductDetails />} />
-      <Route path="/favorites" element={<HeaderAndFavorites />} />
+      <Route path="/products" element={<Products />} />
+      <Route path="/product/:id" element={<ProductsDetails />} />
+      <Route path="/favorites" element={<Favorites />} />
     </Routes>
   </BrowserRouter>
-);
-
-const HeaderAndProducts = () => (
-  <>
-    <Header />
-    <Products />
-  </>
-);
-
-const HeaderAndProductDetails = () => (
-  <>
-    <Header />
-    <ProductsDetails />
-  </>
-);
-
-const HeaderAndFavorites = () => (
-  <>
-    <Header />
-    <Favorites />
-  </>
 );
 
 export default App;
