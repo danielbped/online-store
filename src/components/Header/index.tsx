@@ -1,8 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 const Header = () => {
+  const nagivate = useNavigate()
+
   return (
-    <h1>
-      Header
-    </h1>
+    <div>
+      <button onClick={ () => nagivate('/favorites') }>fav</button>
+    </div>
   );
 };
 
