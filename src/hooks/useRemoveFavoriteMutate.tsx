@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios";
 
 const { VITE_API_URL } = import.meta.env;
@@ -16,8 +16,13 @@ const removeFav = async (id: string, favId: string): AxiosPromise<void> => {
 };
 
 const useRemoveFavoriteMutate = (id: string, favId: string) => {
+  const queryClient = useQueryClient();
+
   const mutate = useMutation({
     mutationFn: () => removeFav(id, favId),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['favorite-data'] });
+    }
   });
 
   return mutate;

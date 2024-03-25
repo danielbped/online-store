@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios";
 import { CreateFavoriteData, FavoriteData } from "../interfaces/favorite-data.interface";
 
@@ -17,8 +17,13 @@ const addFav = async (id: string, data: CreateFavoriteData): AxiosPromise<Favori
 };
 
 const useFavoriteMutate = (id: string, data: CreateFavoriteData) => {
+  const queryClient = useQueryClient();
+
   const mutate = useMutation({
     mutationFn: () => addFav(id, data),
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['favorite-data'] });
+    },
   });
 
   return mutate;
