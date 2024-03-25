@@ -1,6 +1,7 @@
 import { MouseEventHandler } from "react";
 import { ChangeEventHandler } from "react";
 import { ProductData, ProductResponse } from "./product-data.interface";
+import { FavoriteData, FavoriteResponse } from "./favorite-data.interface";
 
 export interface InputProps {
   type: string,
@@ -21,9 +22,9 @@ export interface ErrorMessageProps {
 }
 
 export interface ProductCardProps {
-  product: ProductData,
+  product: ProductData | FavoriteData,
 }
 
 export interface ProductListProps {
-  data: ProductResponse
+  data: ProductResponse | FavoriteResponse
 }

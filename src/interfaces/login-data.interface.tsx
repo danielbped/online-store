@@ -1,5 +1,8 @@
+import { User } from "./user-data.interface"
+
 interface LoginToken {
-  data: string,
+  token: string,
+  user: User
 }
 
 export interface LoginResponse {
