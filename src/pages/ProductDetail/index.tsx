@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import useProductDetailsData from "../../hooks/userProductDetailsData";
-import ProductCard from "../../components/ProductCard";
 import Loading from "../../components/Loading";
 import ErrorMessage from "../../components/ErrorMessage";
+import ProductDetailsCard from "../../components/ProductDetailsCard";
 
 const ProductsDetails = () => {
   const params = useParams();
@@ -13,7 +13,7 @@ const ProductsDetails = () => {
     <div>
       { isLoading && <Loading /> }
       { isError && <ErrorMessage message={ error.response.data.message } /> }
-      { data && <ProductCard product={ data?.product } /> }
+      { !isLoading && data && <ProductDetailsCard product={ data } /> }
     </div>
   );
 };
