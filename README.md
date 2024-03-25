@@ -6,7 +6,9 @@ Trata-se de uma aplicação que simula uma loja virtual, sendo possível cadastr
 - [Licença](#licenca)
 - [Tecnologias utilizadas](#tecnologias)
 - [Instruções para rodar o projeto](#instrucoes)
+  - [.env](#env)
 - [Demonstração](#demo)
+- [Melhorias futuras](#melhorias)
 
 ## Licença <a name="licenca"></a>
 Este projeto está sob licença do [MIT](https://github.com/danielbped/online-store/blob/master/LICENSE)
@@ -50,4 +52,17 @@ Este projeto está sob licença do [MIT](https://github.com/danielbped/online-st
 
     > ⚠️ A aplicação, por definição, estará rodando na porta 5173 ⚠️
 
+## .env <a name="env"></a>
+
+Na raiz do projeto, será necessário criar um arquivo .env, com as seguintes informações:
+
+```
+  VITE_API_URL=""
+  VITE_SECRET_KEY_JWT="online-store"
+```
+
+Um arquivo com estas definições já está presente no projeto, o **.env.example**, para que funcione corretamente, basta renomear para apenas **.env**, e alterar os dados **VITE_API_URL** de acordo com a rota em que a API esteja rodando, provavelmente será **http://localhost:3000**. Em relação à outra variável, trata-se da chave para descriptografar as senhas do banco de dados, portanto deve ser a mesma chave utilizada na API, portanto, com o intuito de demonstração, não será alterada.
+
 ## Demonstração <a name="demo"></a>
+
+## Demonstração <a name="melhorias"></a>
