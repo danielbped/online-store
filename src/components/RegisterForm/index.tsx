@@ -1,12 +1,15 @@
 import { RegisterFormInterface } from "../../interfaces/register-form.interface";
 import Button from "../Button";
 import Input from "../Input";
-import { StyledButtonSection, StyledInputSection, StyledRegisterForm } from "./style";
+import { StyledButtonSection, StyledInputSection, StyledRegisterForm, StyledRegisterFormTitle } from "./style";
 
 
 const RegisterForm = (props: RegisterFormInterface) => {
   return (
     <StyledRegisterForm>
+      <StyledRegisterFormTitle>
+        Novo(a) Usuário(a)
+      </StyledRegisterFormTitle>
       <StyledInputSection>
         <Input
           type='text'
@@ -51,7 +54,7 @@ const RegisterForm = (props: RegisterFormInterface) => {
           disabled={ props.disabledButton }
         />
         <Button
-          title='voltar'
+          title='Voltar'
           onClick={ () => props.handleNavigate('login') }
         />
       </StyledButtonSection>
