@@ -14,6 +14,7 @@ const StyledHeaderButton = styled.button`
   background-color: #737293;
   font-weight: bold;
   color: white;
+  margin-right: 1rem;
   padding: .7em 1rem;
   border-radius: .7rem;
 

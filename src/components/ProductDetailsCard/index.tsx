@@ -29,8 +29,10 @@ const ProductDetailsCard = ({ product }: ProductCardProps) => {
   }, [user.id])
 
   useEffect(() => {
-    setFavorited(favData.some(fav => fav.itemId == product.itemId))
-  }, [favData, product])
+    if (token) {
+      setFavorited(favData.some(fav => fav.itemId == product.itemId))
+    }
+  }, [favData, product, token])
 
   const addFav = useAddFavoriteMutate(user.id, {
     itemId: product.itemId,
