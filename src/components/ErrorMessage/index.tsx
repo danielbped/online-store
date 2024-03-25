@@ -1,8 +1,9 @@
 import { ErrorMessageProps } from "../../interfaces/components.interface";
+import { StyledErrorMessage } from "./style";
 
 const ErrorMessage = (props: ErrorMessageProps) => {
   return (
-    <p>{ props.message }</p>
+    <StyledErrorMessage>{ props.message }</StyledErrorMessage>
   );
 };
 
