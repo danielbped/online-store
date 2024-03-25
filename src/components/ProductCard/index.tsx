@@ -5,9 +5,12 @@ import useAddFavoriteMutate from "../../hooks/useAddFavoriteMutate";
 import { useSelector } from "react-redux";
 import useRemoveFavoriteMutate from "../../hooks/useRemoveFavoriteMutate";
 import { FavoriteData } from "../../interfaces/favorite-data.interface";
+import { useLocalStorage } from "@uidotdev/usehooks";
+import { LoginResponse } from "../../interfaces/login-data.interface";
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const user = useSelector((rootReducer: any) => rootReducer.userReducer);
+  const [token, setToken] = useLocalStorage<LoginResponse | null>("token", null);
 
   const navigate = useNavigate();
 
@@ -16,9 +19,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
     price: product.price,
     images: product.images,
     title: product.title
-  });
+  }, token);
 
-  const removeFav = useRemoveFavoriteMutate(user.id, String(product?.itemId));
+  const removeFav = useRemoveFavoriteMutate(user.id, String(product?.itemId), token);
 
   const handleClick = () => {
     navigate(`/product/${product.itemId}`);
@@ -47,11 +50,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <img src={ product.images[0] } alt={ product.title } />
         <p>{ product.price }</p>
       </StyledProductCard>
-      <button
+      { token && <button
         onClick={ () => handleFavorite(product) }
       >
         +FAV { product.favorite && ' OK' }
-      </button>
+      </button> }
     </div>
   );
 };
