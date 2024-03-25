@@ -2,6 +2,7 @@ export interface ProductData {
   id: string,
   title: string,
   status: string,
+  vendor: string,
   images: {
     src: string
   }[],

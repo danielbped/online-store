@@ -27,3 +27,11 @@ export interface ProductCardProps {
 export interface ProductListProps {
   data: FavoriteData[]
 }
+
+export interface ImagesCarouselProps {
+  images: string[],
+}
+
+export interface ProductsCarouselProps {
+  items: FavoriteData[],
+}
