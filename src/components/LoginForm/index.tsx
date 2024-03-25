@@ -2,11 +2,14 @@ import { LoginFormInterface } from "../../interfaces/login-form.interface";
 import Button from "../Button";
 import ErrorMessage from "../ErrorMessage";
 import Input from "../Input";
-import { StyledButtonSection, StyledInputSection, StyledLoginForm } from "./style";
+import { StyledButtonSection, StyledInputSection, StyledLoginForm, StyledLoginFormTitle, StyledRegisterCTA, StyledRegisterLink } from "./style";
 
 const LoginForm = (props: LoginFormInterface) => {
   return (
     <StyledLoginForm>
+      <StyledLoginFormTitle>
+        Entrar
+      </StyledLoginFormTitle>
       <StyledInputSection>
         <Input
           type='text'
@@ -28,12 +31,17 @@ const LoginForm = (props: LoginFormInterface) => {
           title='Entrar'
           onClick={ () => props.submit() }
         />
-        <Button
-          title='Criar Conta'
-          onClick={ () => props.handleNavigate('register') }
-        />
+        { props.isError && <ErrorMessage message={ props.error } /> }
+        <StyledRegisterCTA>
+          Não possui conta?
+          <StyledRegisterLink
+            onClick={ () => props.handleNavigate('register')
+          }>
+            { " " }
+            Registrar
+          </StyledRegisterLink>
+        </StyledRegisterCTA>
       </StyledButtonSection>
-      { props.isError && <ErrorMessage message={ props.error } /> }
     </StyledLoginForm>
   );
 };
