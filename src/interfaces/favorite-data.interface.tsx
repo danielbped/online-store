@@ -1,9 +1,9 @@
 export interface FavoriteData {
-  id: string,
+  id?: string | null,
   title: string,
   images: string[],
   price: string,
-  itemId?: string,
+  itemId: string,
 }
 
 export interface CreateFavoriteData {
