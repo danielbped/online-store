@@ -65,4 +65,50 @@ Um arquivo com estas definições já está presente no projeto, o **.env.exampl
 
 ## Demonstração <a name="demo"></a>
 
+### Página de produtos sem estar logado
+
+![Página de produtos sem estar logado](./public/products_not_logged.png)
+
+### Página de detalhe do produto sem estar logado
+
+![Página de detalhe do produto sem estar logado](./public/product_details_not_logged.png)
+
+### Login
+
+![Login](./public/login.png)
+
+### Login usuário inválido
+
+![Login usuário inválido](./public/login_user_not_found.png)
+
+### Login senha inválida
+
+![Login senha inválida](./public/login_wrong_password.png)
+
+### Cadastrar um novo usuário
+
+![Cadastrar um novo usuário](./public/register.png)
+
+### Página de produtos logado
+
+![Página de produtos logado](./public/products_logged.png)
+
+### Página de detalhes do produto logado
+
+![Página de detalhes do produto logado](./public/product_details_logged.png)
+
+### Página de favoritos
+
+![Página de favoritos](./public/favorites.png)
+
+### Página not found
+
+![Página not found](./public/not_found.png)
+
 ## Futuras Melhorias <a name="melhorias"></a>
+
+- Implementação de testes unitários;
+- Implementar sistema de usuário, com redefinição e visualização de dados;
+- Melhorias em alguns aspectos de responsividade;
+- Correções de tipagens e interfaces;
+- Implementação de lazy loading ou paginação,
