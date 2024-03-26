@@ -13,6 +13,7 @@ const StyledTitle = styled.h1`
   text-align: center;
   font-size: 3rem;
   margin-bottom: 3rem;
+  color: #737293;
 `;
 
 const StyledImage = styled.img`
