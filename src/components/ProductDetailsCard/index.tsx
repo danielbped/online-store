@@ -14,7 +14,6 @@ import {
 import useAddFavoriteMutate from "../../hooks/useAddFavoriteMutate";
 import { useSelector } from "react-redux";
 import useRemoveFavoriteMutate from "../../hooks/useRemoveFavoriteMutate";
-import { FavoriteData } from "../../interfaces/favorite-data.interface";
 import { useLocalStorage } from "@uidotdev/usehooks";
 import { LoginResponse } from "../../interfaces/login-data.interface";
 import { FaHeart } from "react-icons/fa6";
@@ -62,8 +61,8 @@ const ProductDetailsCard = ({ product }: ProductCardProps) => {
     addFav.mutate();
   };
 
-    const handleFavorite = (product: FavoriteData) => {
-    if (product?.favorite) {
+    const handleFavorite = () => {
+    if (favorited) {
       removeFavorite();
     } else {
       addFavorite();
@@ -81,7 +80,7 @@ const ProductDetailsCard = ({ product }: ProductCardProps) => {
           <StyledProductPrice>R$ {product.price}</StyledProductPrice>
           {token && (
             <StyledFavoriteButton
-              onClick={() => handleFavorite(product)}
+              onClick={() => handleFavorite()}
             >
               {favorited ? <FaHeart /> : <CiHeart />}
             </StyledFavoriteButton>
