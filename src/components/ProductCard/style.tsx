@@ -2,6 +2,11 @@ import styled from "styled-components";
 
 const StyledProductCard = styled.div`
   margin: 2rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  -webkit-box-shadow: 10px 10px 30px -21px rgba(0,0,0,0.33);
+  -moz-box-shadow: 10px 10px 30px -21px rgba(0,0,0,0.33);
+  box-shadow: 10px 10px 30px -21px rgba(0,0,0,0.33);
 `;
 
 const StyledProductImage = styled.img`

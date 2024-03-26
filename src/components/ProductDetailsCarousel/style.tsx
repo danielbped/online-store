@@ -4,7 +4,6 @@ const StyledCarouselContainer = styled.div`
   display: flex;
   width: 100%;
 
-
   &.alice-carousel {
     margin: 0;
   }
@@ -12,4 +11,4 @@ const StyledCarouselContainer = styled.div`
 
 export {
   StyledCarouselContainer,
-}
+};
