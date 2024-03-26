@@ -1,6 +1,7 @@
 @import "react-alice-carousel/lib/alice-carousel.css";
 
 * {
+  font-family: "Gill Sans", sans-serif;
   padding: 0;
   margin: 0;
 }

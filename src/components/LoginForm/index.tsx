@@ -8,7 +8,7 @@ const LoginForm = (props: LoginFormInterface) => {
   return (
     <StyledLoginForm>
       <StyledLoginFormTitle>
-        Entrar
+        Login
       </StyledLoginFormTitle>
       <StyledInputSection>
         <Input

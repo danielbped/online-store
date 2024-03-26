@@ -6,6 +6,7 @@ import ProductsDetails from './pages/ProductDetail';
 import Favorites from './pages/Favorites';
 import { Navigate } from 'react-router-dom';
 import Header from './components/Header';
+import NotFound from './pages/NotFound';
 
 const App = () => (
   <BrowserRouter>
@@ -17,6 +18,7 @@ const App = () => (
       <Route path="/products" element={<Products />} />
       <Route path="/product/:id" element={<ProductsDetails />} />
       <Route path="/favorites" element={<Favorites />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   </BrowserRouter>
 );

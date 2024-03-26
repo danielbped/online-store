@@ -1,5 +1,16 @@
 import { ProductCardProps } from "../../interfaces/components.interface";
-import { StyledVendorName, StyledProductCard, StyledProductInfo, StyledProductPrice, StyledProductTitle, StyledFavoriteButton, StyledProductPriceDiv, StyledAvailableVariant, StyleAvailableVariantDiv, StyledAvailableTitle } from "./style";
+import {
+  StyledVendorName,
+  StyledProductCard,
+  StyledProductInfo,
+  StyledProductPrice,
+  StyledProductTitle,
+  StyledFavoriteButton,
+  StyledProductPriceDiv,
+  StyledAvailableVariant,
+  StyleAvailableVariantDiv,
+  StyledAvailableTitle
+} from "./style";
 import useAddFavoriteMutate from "../../hooks/useAddFavoriteMutate";
 import { useSelector } from "react-redux";
 import useRemoveFavoriteMutate from "../../hooks/useRemoveFavoriteMutate";
