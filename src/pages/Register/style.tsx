@@ -4,7 +4,7 @@ const StyledRegister = styled.div`
   align-items: center;
   display: flex;
   justify-content: center;
-  height: 100vh;
+  height: 80vh;
   width: 100%;
 `;
 

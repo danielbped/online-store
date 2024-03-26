@@ -7,6 +7,7 @@ import Favorites from './pages/Favorites';
 import { Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import NotFound from './pages/NotFound';
+import Footer from './components/Footer';
 
 const App = () => (
   <BrowserRouter>
@@ -20,6 +21,7 @@ const App = () => (
       <Route path="/favorites" element={<Favorites />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
+    <Footer />
   </BrowserRouter>
 );
 
